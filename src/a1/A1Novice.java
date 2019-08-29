@@ -10,9 +10,7 @@ public class A1Novice {
 		
 		int tnum = scan.nextInt();
 		double totalCost = 0;
-		
-		// Your code follows here.
-		
+				
 		String [] firstNames = new String [tnum];
 		String [] lastNames = new String [tnum];
 		double [] totalCostArray = new double [tnum];

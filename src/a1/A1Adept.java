@@ -11,9 +11,7 @@ public class A1Adept {
 		int numStoreItems = scan.nextInt();
 		String [] storeItemNames = new String [numStoreItems];
 		double [] storeItemPrices = new double [numStoreItems];
-		
-		// Your code follows here.
-		
+				
 		for (int x = 0; x<numStoreItems;x++)
 		{
 			storeItemNames[x] = scan.next();
