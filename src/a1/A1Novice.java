@@ -11,12 +11,12 @@ public class A1Novice {
 		int tnum = scan.nextInt();
 		double totalCost = 0;
 				
-		String [] firstNames = new String [tnum];
+		String [] firstNames = new String [tnum]; //arrays to keep track of customer names
 		String [] lastNames = new String [tnum];
-		double [] totalCostArray = new double [tnum];
-		char [] firstInitials = new char [tnum];
+		double [] totalCostArray = new double [tnum]; //array to get total cost of each customer's order
+		char [] firstInitials = new char [tnum]; //array to store initial of first names
 		
-		for (int x=0; x<tnum; x++)
+		for (int x=0; x<tnum; x++) //loop used to input names into arrays
 		{
 			
 			firstNames[x] = scan.next();
@@ -25,7 +25,7 @@ public class A1Novice {
 			
 			int numItems = scan.nextInt();
 			
-			for (int y = 0; y<numItems; y++)
+			for (int y = 0; y<numItems; y++) //loop used to store items ordered
 			{
 				int quanItem = scan.nextInt();
 				
@@ -36,7 +36,7 @@ public class A1Novice {
 				totalCost += quanItem*priceItem;
 			}
 		
-			totalCostArray[x] = totalCost;
+			totalCostArray[x] = totalCost; //stores total cost into the corresponding index of the array
 			totalCost = 0;
 			
 		} 

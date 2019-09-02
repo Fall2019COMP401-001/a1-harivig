@@ -15,7 +15,7 @@ public class A1Jedi {
 		int numCustThatBoughtItems [] = new int [numStoreItems];
 		int totalNumOfAnItemBought [] = new int [numStoreItems];
 				
-		for (int x = 0; x<numStoreItems;x++)
+		for (int x = 0; x<numStoreItems;x++) //creating the menu based on input
 		{
 			storeItemNames[x] = scan.next();
 			storeItemPrices[x] = scan.nextDouble();
@@ -23,11 +23,11 @@ public class A1Jedi {
 		
 		int numCust = scan.nextInt();
 		String [] custNames = new String [numCust];
-		double [] custTotals = new double [numCust];
+		boolean [] alreadyPurchased = new boolean [numStoreItems]; //used to check if a customer has already bought an item. got this idea from classmate on Piazza
 		
 		for (int y=0; y<numCust; y++)
 		{
-			custNames[y] = scan.next() + " " + scan.next();
+			custNames[y] = scan.next() + " " + scan.next(); //customer name input
 			
 			int numItemsSpent = scan.nextInt();
 			
@@ -37,14 +37,23 @@ public class A1Jedi {
 				String itemBought = scan.next();
 				
 				for (int b=0; b<numStoreItems;b++)
-				{
-					if (itemBought.equals(storeItemNames[b]))
-					{
-						custTotals[y] += numItemBought*storeItemPrices[b];
-						numCustThatBoughtItems[b]++;
-						totalNumOfAnItemBought[b]+=numItemBought; //fix
-					} 
+				{	
+						if (itemBought.equals(storeItemNames[b])) //checks input with the menu
+						{
+							totalNumOfAnItemBought[b]+=numItemBought; //increments the array with the input
+							
+							if (!alreadyPurchased[b]) //only increase if the customer is not a repeat
+							{
+								numCustThatBoughtItems[b]++;
+								alreadyPurchased[b] = true;
+							}
+						} 	
 				}
+			}
+			
+			for (int x=0;x<numStoreItems;x++) //reset the entire array as false when starting again with a new customer
+			{
+				alreadyPurchased[x]=false;
 			}
 		}
 		
@@ -54,12 +63,10 @@ public class A1Jedi {
 			{
 				System.out.println("No customers bought "+storeItemNames[x]);
 			}
-			
 			else
 			{
 				System.out.println(numCustThatBoughtItems[x]+" customers bought "+totalNumOfAnItemBought[x]+" "+storeItemNames[x]);
 			}
 		}
-		
 	}
 }
